@@ -1,0 +1,88 @@
+{
+  "status": "ok",
+  "feature_columns": [
+    "rms",
+    "spectral_flux",
+    "sub_bass_energy",
+    "low_mid_energy",
+    "mid_energy",
+    "high_energy",
+    "low_high_ratio",
+    "spectral_centroid_hz",
+    "spectral_flatness",
+    "rms_mean_10s",
+    "rms_std_10s",
+    "flux_mean_10s",
+    "bass_mean_10s",
+    "energy_trend_10s"
+  ],
+  "target_columns": [
+    "speed_mult"
+  ],
+  "ridge_alpha": 1.0,
+  "still_weight": 3.0,
+  "normalization": {
+    "mean": {
+      "rms": -16.27799704153831,
+      "spectral_flux": 0.3118263037369923,
+      "sub_bass_energy": 0.29999018124243615,
+      "low_mid_energy": 0.3929876717388018,
+      "mid_energy": 0.36287926307082047,
+      "high_energy": 0.3304165204958559,
+      "low_high_ratio": 11.786433949005364,
+      "spectral_centroid_hz": 2163.0734004277065,
+      "spectral_flatness": 0.32038078067602827,
+      "rms_mean_10s": -16.2305523696592,
+      "rms_std_10s": 5.75548394182001,
+      "flux_mean_10s": 0.3116706380831566,
+      "bass_mean_10s": 0.3011309959111881,
+      "energy_trend_10s": -0.00025140461643259637
+    },
+    "std": {
+      "rms": 10.833838874130661,
+      "spectral_flux": 0.26833828857112973,
+      "sub_bass_energy": 0.3075944622976816,
+      "low_mid_energy": 0.2658508043670886,
+      "mid_energy": 0.28158363610360304,
+      "high_energy": 0.2843801029024475,
+      "low_high_ratio": 87.08770327824877,
+      "spectral_centroid_hz": 1183.0094852830618,
+      "spectral_flatness": 0.18684724641527273,
+      "rms_mean_10s": 7.053291427503124,
+      "rms_std_10s": 5.574007554363306,
+      "flux_mean_10s": 0.14954046236629387,
+      "bass_mean_10s": 0.19682964781499904,
+      "energy_trend_10s": 0.026081697804421974
+    }
+  },
+  "models": {
+    "speed_mult": {
+      "intercept": 0.35988399725794695,
+      "coefficients": {
+        "rms": 0.0042891609534134265,
+        "spectral_flux": 0.02580901771279758,
+        "sub_bass_energy": 0.027448544381764847,
+        "low_mid_energy": 0.018483381496946883,
+        "mid_energy": -0.03278820738220851,
+        "high_energy": 0.008244237327518158,
+        "low_high_ratio": 0.0033854856240572422,
+        "spectral_centroid_hz": -0.01620620844263032,
+        "spectral_flatness": -0.006540169133022203,
+        "rms_mean_10s": -0.018812742763097353,
+        "rms_std_10s": -0.008204866379349566,
+        "flux_mean_10s": 0.07276197103361103,
+        "bass_mean_10s": 0.08888404093782386,
+        "energy_trend_10s": 0.039317212340622514
+      }
+    }
+  },
+  "cadence_rule": {
+    "quiet_threshold": 0.30023980848923154,
+    "mid_threshold": 0.47367365111881204,
+    "mapping": {
+      "quiet": 4,
+      "mid": 2,
+      "loud": 1
+    }
+  }
+}

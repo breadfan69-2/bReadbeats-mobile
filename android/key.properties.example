@@ -1,0 +1,9 @@
+# Copy this file to key.properties and fill in your real values.
+# key.properties is ignored by git (do not commit secrets).
+# Password values can be left blank if set via environment variables:
+# KEYSTORE_KEY_PASSWORD, KEYSTORE_STORE_PASSWORD, KEYSTORE_KEY_ALIAS, KEYSTORE_STORE_FILE
+
+storePassword=
+keyPassword=
+keyAlias=breadbeats
+storeFile=D:/signing/breadbeats-upload.jks

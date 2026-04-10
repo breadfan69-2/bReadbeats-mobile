@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Legacy desktop splash tone from create_splash.py (#1a1a2e). -->
+    <color name="breadbeats_splash_bg">#1A1A2E</color>
+
+    <!-- Desktop bREadbeats main window background (stylesheet.py). -->
+    <color name="breadbeats_desktop_window_bg">#3D3D3D</color>
+
+    <!-- Desktop bREadbeats recurring GUI accent (buttons/tabs/check states). -->
+    <color name="breadbeats_desktop_accent_teal">#008B8B</color>
+
+    <!-- Desktop neon/cyan visual accents used in plots/overlays. -->
+    <color name="breadbeats_desktop_neon_blue">#00AAFF</color>
+    <color name="breadbeats_desktop_neon_cyan">#00FFFF</color>
+</resources>

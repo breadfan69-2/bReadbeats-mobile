@@ -1,0 +1,5 @@
+{
+    "terminal.integrated.env.windows": {
+        "GRADLE_USER_HOME": "D:\\breadbeats-gradle-cache"
+    }
+}
