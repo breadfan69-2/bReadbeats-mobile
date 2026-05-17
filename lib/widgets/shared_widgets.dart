@@ -36,6 +36,75 @@ class StatusChip extends StatelessWidget {
   }
 }
 
+class HostHistoryTextField extends StatelessWidget {
+  const HostHistoryTextField({
+    super.key,
+    required this.controller,
+    required this.focusNode,
+    required this.hostHistory,
+    required this.onChanged,
+    this.enabled = true,
+    this.historyEnabled = true,
+  });
+
+  final TextEditingController controller;
+  final FocusNode focusNode;
+  final List<String> hostHistory;
+  final ValueChanged<String> onChanged;
+  final bool enabled;
+  final bool historyEnabled;
+
+  @override
+  Widget build(BuildContext context) {
+    final List<String> recentHosts = hostHistory
+        .where((String host) => host.isNotEmpty)
+        .toList(growable: false);
+    final bool showHistoryButton = recentHosts.length > 1;
+
+    return Row(
+      children: <Widget>[
+        Expanded(
+          child: TextField(
+            controller: controller,
+            focusNode: focusNode,
+            onChanged: onChanged,
+            enabled: enabled,
+            decoration: const InputDecoration(
+              labelText: 'FOC-Stim IP',
+              hintText: '192.168.x.x',
+            ),
+          ),
+        ),
+        if (showHistoryButton) ...<Widget>[
+          const SizedBox(width: 8),
+          PopupMenuButton<String>(
+            tooltip: 'Recent IP addresses',
+            enabled: enabled && historyEnabled,
+            onSelected: (String value) {
+              controller.value = TextEditingValue(
+                text: value,
+                selection: TextSelection.collapsed(offset: value.length),
+              );
+              focusNode.requestFocus();
+              Haptics.selection();
+              onChanged(value);
+            },
+            itemBuilder: (BuildContext context) {
+              return recentHosts
+                  .map(
+                    (String ip) =>
+                        PopupMenuItem<String>(value: ip, child: Text(ip)),
+                  )
+                  .toList(growable: false);
+            },
+            icon: const Icon(Icons.arrow_drop_down),
+          ),
+        ],
+      ],
+    );
+  }
+}
+
 class TelemetryRow extends StatelessWidget {
   const TelemetryRow({super.key, required this.label, required this.value});
 

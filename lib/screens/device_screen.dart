@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../core/haptics.dart';
 import '../models/device_models.dart';
 import '../providers/connection_provider.dart';
 import '../widgets/battery_indicator.dart';
@@ -62,50 +61,13 @@ class _DeviceScreenState extends State<DeviceScreen> {
           Row(
             children: <Widget>[
               Expanded(
-                child: connection.hostHistory.length > 1
-                    ? DropdownButtonFormField<String>(
-                        key: ValueKey<String?>(
-                          connection.hostHistory.contains(_hostController.text)
-                              ? _hostController.text
-                              : null,
-                        ),
-                        initialValue:
-                            connection.hostHistory.contains(
-                              _hostController.text,
-                            )
-                            ? _hostController.text
-                            : null,
-                        decoration: const InputDecoration(
-                          labelText: 'FOC-Stim IP',
-                          isDense: true,
-                        ),
-                        items: connection.hostHistory
-                            .map(
-                              (String ip) => DropdownMenuItem<String>(
-                                value: ip,
-                                child: Text(ip),
-                              ),
-                            )
-                            .toList(),
-                        onChanged: connection.sessionRunning
-                            ? null
-                            : (String? value) {
-                                if (value != null) {
-                                  Haptics.selection();
-                                  _hostController.text = value;
-                                  connection.setHost(value);
-                                }
-                              },
-                      )
-                    : TextField(
-                        controller: _hostController,
-                        focusNode: _hostFocusNode,
-                        onChanged: connection.setHost,
-                        decoration: const InputDecoration(
-                          labelText: 'FOC-Stim IP',
-                          hintText: '192.168.x.x',
-                        ),
-                      ),
+                child: HostHistoryTextField(
+                  controller: _hostController,
+                  focusNode: _hostFocusNode,
+                  hostHistory: connection.hostHistory,
+                  onChanged: connection.setHost,
+                  historyEnabled: !connection.sessionRunning,
+                ),
               ),
               const SizedBox(width: 12),
               SizedBox(
