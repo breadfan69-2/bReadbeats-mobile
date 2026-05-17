@@ -6,6 +6,8 @@ A Flutter-based Android app that brings audio-reactive haptic feedback to your F
 
 When you launch the app for the first time, you'll walk through a quick setup wizard:
 
+**
+
 1. **Network Security** – A heads-up that FOC-Stim communicates over unencrypted WiFi. Keep your device on a trusted network.
 
 2. **Device Connection** – Enter your FOC-Stim's IP address and port (default: 55533). The app tests the connection right away, so you'll know immediately if the setup works.
@@ -22,7 +24,7 @@ The app offers two interpretations of music, selectable from the stim pattern ti
 Follows the detected downbeats and tempo of a song. Think of it as the "steady pulse" — the app locks onto the rhythm and delivers stimulation synchronized with the drums or main groove. Works best with music that has a clear, consistent beat. The sensation tracks the energy of the kick drum and bass.
 
 ### Onset Mode
-Triggers on transient attacks — snare cracks, hi-hat cymbals, synth stabs, vocal consonants. Anything percussive or sudden. Onsets are mapped to frequency bands, so high-frequency hits feel different from low-frequency rumbles. In 3-phase, the app uses stereo L/R bias to create left-right panning sensations.
+Triggers on transient attacks. Onsets are mapped to frequency bands, so high-frequency hits feel different from low-frequency rumbles. In 3-phase, the app uses stereo L/R bias to create left-right panning sensations.
 
 In 4-phase onset mode, each electrode is driven by one or more frequency bands, and the mapping is **user-configurable**. Open the stim pattern screen while in 4-phase onset to assign up to 3 bands per electrode from 7 available (sub-bass through brilliance). Changes apply on the next heartbeat tick without stopping the session.
 
@@ -52,7 +54,7 @@ Select your output mode from the calibration tile. The phase visualizer shows re
 The FOC-Stim device has a single encoder button. Here's what it does when connected to BB MObile:
 
 - **Single click** – No effect (reserved for future use)
-- **Triple click** (click-click-click) – Toggle volume lock on/off.  Volume can also be unlocked with a quick turn 'down' on the know, this will send it to zero immediately.
+- **Triple click** (click-click-click) – Toggle volume lock on/off.  
 - **Long press** (click/hold >1500ms) – Soft mute. Stimulation stops immediately, but the session stays active. Release to resume.
 - **Click then hold** (click-click/hold >600ms) – Disconnect from the app and stop the session entirely.
 
@@ -64,7 +66,8 @@ The home screen is organized into tiles:
 
 - **Phase Visualizer** – Real-time electrode intensity display (circle for 3-phase, tetrahedron for 4-phase).
 - **Session Tile** – Start/stop the session. Tap for stim pattern details (beat/onset mode, 3/4-phase, and in 4-phase onset, user band mapping).
-- **Audio Tile** – Pick which app's audio to capture (Spotify, YouTube, etc.). The app uses Android's app-specific audio capture, not the microphone or system mix. Shows level and silence-gate status while capture is active.
+- **Audio Tile** – Pick which app's audio to capture (Spotify, YouTube, etc.). 
+The app uses Android's app-specific audio capture, not the microphone or system mix. Shows level and silence-gate status while capture is active.
 - **Carrier Freq Tile** – Adjust carrier frequency (Hz).
 - **Connection Tile** – Shows WiFi status, battery level, and device volume.
 - **Pulse Freq Tile** – Set pulse frequency mode (auto/manual) and range.
@@ -89,7 +92,7 @@ Position, frequency, and LFO settings persist across sessions.
 
 ## Stability Notes
 
-- The app requires **Android 11+** and specific audio permissions. Grant them when prompted.
+- The app requires **Android 11+** and specific audio permissions. Grant them when prompted.  NOTE:  Android has only one 'capture' permission, which includes screen capture.   Breadbeats Mobile does NOT capture screen, only audio of the specific app selected.
 - WiFi should be stable and low-latency. Latency spikes can cause stuttering.
 
 
